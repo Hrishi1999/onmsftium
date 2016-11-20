@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="Project_Methane.Article"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Project_Methane"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Name="MainGrid" Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="67*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <WebView Name="WebView" ScrollViewer.VerticalScrollBarVisibility="Disabled" MaxWidth="1200" Grid.Row="1" Margin="0"/>
+        <StackPanel x:Name="ActionBar" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4">
+            <AppBarButton Icon="Back" Foreground="#FF259EFF" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,292,0" Click="AppBarButton_Click_2"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="Project_Methane.Podcasts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Project_Methane"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <ListView x:ConnectionId='1' x:Name="FeedListView" Margin="0" 
+              ItemsSource="{Binding Path=P_result}" ShowsScrollingPlaceholders="False" BorderThickness="0,0,1,0" RequestedTheme="Light"  BorderBrush="#FFE0E0E0" Background="White" Foreground="{ThemeResource SystemControlForegroundAccentBrush}"                                     Grid.RowSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal"  Margin="5" Background="{x:Null}" HorizontalAlignment="Stretch" BorderBrush="{x:Null}" Opacity="1"  BorderThickness="1" >
+
+                        <StackPanel >
+
+                            <TextBlock Text="{Binding Path=title}" 
+                         FontSize="16" TextWrapping="Wrap" Width="300" Margin="0,5,0,0" FontFamily="Assets/OpenSans-Regular.ttf#Open Sans" HorizontalAlignment="Left" FontWeight="Normal" Foreground="Black" />
+                            <TextBlock Text="{Binding Path=created_at}" FontSize="12" Margin="0,5,0,0" FontFamily="Assets/OpenSans-Regular.ttf#Open Sans" SelectionHighlightColor="{x:Null}" >
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="#FF1AB6E4"/>
+                                </TextBlock.Foreground>
+
+                            </TextBlock>
+
+
+                        </StackPanel>
+                        <Image Source="http://winbeta.org/wp-content/uploads/2015/08/winbetapodcast-320x165.jpg"  Width="100" Height="90" Stretch="Uniform" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <MediaElement x:ConnectionId='2' AudioCategory="BackgroundCapableMedia" x:Name="Player" RequestedTheme="Default" CompositeMode="MinBlend"  Width="300" Grid.Row="2" Grid.Column="1" Height="50" Margin="265,38,265,33.08"/>
+
+        <StackPanel Orientation="Horizontal" BorderThickness="0,0,0,1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+            <Viewbox Width="200" Height="200">
+                <AppBarButton Icon="Previous" IsCompact="True" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0" >
+                    <AppBarButton.Foreground>
+                        <SolidColorBrush Color="#FF1AE49B"/>
+                    </AppBarButton.Foreground>
+
+                </AppBarButton>
+
+            </Viewbox>
+            <Viewbox Width="200" Height="200">
+                <AppBarButton x:ConnectionId='6' Icon="Pause" IsCompact="True" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0"                            >
+                    <AppBarButton.Foreground>
+                        <SolidColorBrush Color="#FF1AB6E4"/>
+                    </AppBarButton.Foreground>
+
+                </AppBarButton>
+
+            </Viewbox>
+            <Viewbox Width="200" Height="200">
+                <AppBarButton Icon="Next" IsCompact="True" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0" >
+                    <AppBarButton.Foreground>
+                        <SolidColorBrush Color="#FF1AB6E4"/>
+                    </AppBarButton.Foreground>
+
+                </AppBarButton>
+
+            </Viewbox>
+        </StackPanel>
+        <TextBlock x:ConnectionId='3' x:Name="Title" Grid.Column="1" Margin="50" TextWrapping="Wrap" Text="Title" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="21.333"/>
+        <StackPanel Grid.Column="1" Margin="50,50,50,0" Grid.Row="2">
+            <Slider x:ConnectionId='4' x:Name="Slider" SmallChange="0.1" LargeChange="1"                     Maximum="0" ToolTipService.ToolTip="Value" StepFrequency="0.1" Foreground="#FF1AB6E4" />
+            <TextBlock x:ConnectionId='5' x:Name="Position" Grid.Column="1" HorizontalAlignment="Center" Margin="0,25,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>
+

@@ -1,0 +1,148 @@
+﻿<Page
+    x:Class="Project_Methane.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Project_Methane"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="410"/>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Left">
+            <Grid Margin="7.5,0">
+                <Rectangle Fill="#FF2186FF" Stroke="#FF2186FF"  Margin="0" StrokeThickness="0" Height="5" VerticalAlignment="Top" />
+
+                <Viewbox Width="48" Height="48" Margin="0,10,0,0">
+                    <Canvas x:ConnectionId='13' xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="Layer_1" Width="512" Height="512">
+                        <Canvas.RenderTransform>
+                            <TranslateTransform X="0" Y="0"/>
+                        </Canvas.RenderTransform>
+                        <Canvas.Resources/>
+
+                        <Path x:ConnectionId='14' xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3339" Fill="#FF2186FF" Data="M105.8 105.8c-82.8 82.8-82.8 217.5 0 300.3v0c41.4 41.4 95.8 62.1 150.2 62.1s108.8-20.7 150.2-62.1  c40.1-40.1 62.2-93.4 62.2-150.2s-22.1-110.1-62.2-150.2C323.3 23 188.6 23 105.8 105.8z M397 397c-37.7 37.7-87.7 58.4-141 58.4  s-103.3-20.7-141-58.4v0c-77.8-77.8-77.8-204.3 0-282s204.3-77.8 282 0c37.7 37.7 58.4 87.7 58.4 141  C455.4 309.3 434.6 359.3 397 397z M383.7 242.2L261.1 132.6c-0.2-0.2-0.4-0.4-0.7-0.5c-2.4-2.3-6.3-2.5-8.8-0.2L129.1 241.5  c-2.7 2.4-2.9 6.5-0.5 9.1c1.3 1.4 3.1 2.2 4.8 2.2c1.5 0 3.1-0.5 4.3-1.6l23.3-20.9v5.5v57.2v66.8c0 9.6 7.8 17.4 17.4 17.4  c0.1 0 0.3 0 0.4 0c0.1 0 0.3 0 0.4 0h37.8c8.8 0 15.9-7 16.3-15.7c0-0.2 0-0.4 0-0.7v-65c0-1.9 1.5-3.4 3.4-3.4h39  c1.9 0 3.4 1.5 3.4 3.4v65c0 0.2 0 0.4 0 0.7c0.4 8.7 7.5 15.7 16.3 15.7h38.7c9.8 0 17.4-9.7 17.4-22.1v-59.5v-18.2V231l23.3 20.9  c1.2 1.1 2.8 1.6 4.3 1.6c1.8 0 3.6-0.7 4.8-2.2C386.6 248.7 386.4 244.6 383.7 242.2z M338.8 277.4v18.2v59.5  c0 5.7-2.9 9.1-4.5 9.1h-38.7c-1.9 0-3.4-1.5-3.4-3.4v-65c0-9-7.3-16.3-16.3-16.3h-39c-9 0-16.3 7.3-16.3 16.3v65  c0 1.9-1.5 3.4-3.4 3.4h-37.8c-0.1 0-0.3 0-0.4 0c-0.1 0-0.3 0-0.4 0c-2.5 0-4.5-2-4.5-4.5v-66.8v-57.2v-17.1l82-73.3l82.8 74V277.4  z"/>
+                    </Canvas>
+
+                </Viewbox>
+
+            </Grid>
+
+            <Viewbox x:ConnectionId='8' Width="48" Height="48" Margin="7.5,10,7.5,0"                  >
+                <Canvas x:ConnectionId='11' xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="512" Height="512" Background="White"                  >
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="0" Y="0"/>
+                    </Canvas.RenderTransform>
+                    <Canvas.Resources/>
+
+                    <Path x:ConnectionId='12' xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3350" Fill="#FF2186FF" Data="M256 468.4c56.7 0 110.1-22.1 150.2-62.2c40.1-40.1 62.2-93.4 62.2-150.2c0-56.7-22.1-110.1-62.2-150.2  C366.1 65.7 312.7 43.6 256 43.6s-110.1 22.1-150.2 62.2C65.7 145.9 43.6 199.3 43.6 256c0 56.7 22.1 110.1 62.2 150.2  C145.9 446.3 199.3 468.4 256 468.4z M115 115c37.7-37.7 87.7-58.4 141-58.4c53.3 0 103.3 20.7 141 58.4  c37.7 37.7 58.4 87.7 58.4 141c0 53.3-20.7 103.3-58.4 141c-37.7 37.7-87.7 58.4-141 58.4c-53.3 0-103.3-20.7-141-58.4  c-37.7-37.7-58.4-87.7-58.4-141C56.6 202.7 77.3 152.7 115 115z M178 238.4c0-0.6 0-1.2 0-1.8c0.1-3.5 3-6.3 6.5-6.3  c0 0 0.1 0 0.1 0c3.6 0.1 6.4 3 6.3 6.6c0 0.5 0 1 0 1.5c0 35.6 28.6 64.6 64 65.3c0.3-0.1 0.7-0.1 1-0.1c0 0 0 0 0 0  c0.4 0 0.8 0 1.1 0.1c35.7-0.4 64.6-29.6 64.6-65.3c0-0.3 0-0.7 0-1c-0.1-3.6 2.8-6.5 6.4-6.6c3.6-0.1 6.5 2.8 6.6 6.4  c0 0.4 0 0.8 0 1.2c0 41.1-31.8 74.9-72.1 78l0.3 49h29c3.6 0 6.5 2.9 6.5 6.5s-2.9 6.5-6.5 6.5h-35.5c0 0 0 0 0 0H221  c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5h28.7l-0.3-49C209.5 313 178 279.3 178 238.4z M256.4 284.7c25.6 0 46.3-20.8 46.3-46.3  v-58.8c0-25.6-20.8-46.3-46.3-46.3s-46.3 20.8-46.3 46.3v58.8C210.1 263.9 230.9 284.7 256.4 284.7z M223 179.6  c0-18.4 15-33.4 33.4-33.4s33.4 15 33.4 33.4v58.8c0 18.4-15 33.4-33.4 33.4s-33.4-15-33.4-33.4V179.6z"/>
+                </Canvas>
+
+            </Viewbox>
+            <Viewbox Width="48" Height="48" Margin="7.5,10,7.5,0">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="512" Height="512">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="0" Y="0"/>
+                    </Canvas.RenderTransform>
+                    <Canvas.Resources/>
+
+                    <Path x:ConnectionId='10' xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3361" Fill="#FF2186FF" Data="M105.8 105.8c-82.8 82.8-82.8 217.5 0 300.3h0c41.4 41.4 95.8 62.1 150.2 62.1s108.8-20.7 150.2-62.1  c82.8-82.8 82.8-217.5 0-300.3C323.4 23 188.6 23 105.8 105.8z M455.4 256c0 53.3-20.7 103.3-58.4 141c-77.8 77.8-204.3 77.8-282 0  c-37.7-37.7-58.4-87.7-58.4-141S77.3 152.7 115 115c77.8-77.8 204.3-77.8 282 0C434.7 152.7 455.4 202.7 455.4 256z M201.2 167.5  C201.2 167.5 201.2 167.5 201.2 167.5c-18 0-34.9 7.1-47.6 19.9c-12.7 12.7-19.7 29.8-19.7 47.8c0 18 7 34.9 19.8 47.6l97.5 97.5  c0 0 0 0 0.1 0.1l0.2 0.2c1.3 1.3 2.9 1.9 4.6 1.9c1.7 0 3.3-0.6 4.6-1.9l97.6-97.7c26.3-26.3 26.3-69 0.1-95.3  c-26.3-26.3-69-26.3-95.3 0l-7.1 7.1l-7.2-7.2C236.1 174.7 219.2 167.5 201.2 167.5z M260.6 208.4l11.7-11.7  c21.2-21.2 55.7-21.2 76.9 0c21.2 21.2 21.2 55.7-0.1 77l-93.1 93.1l-93.2-93.2c-10.3-10.3-16-24-16-38.5c0-14.5 5.6-28.3 15.9-38.5  c10.3-10.3 23.9-16.1 38.4-16.1c0 0 0 0 0.1 0c14.5 0 28.2 5.8 38.5 16.1l11.8 11.9C254 211 258.1 211 260.6 208.4z"/>
+                </Canvas>
+
+            </Viewbox>
+            <Viewbox Width="48" Height="48" Margin="7.5,10,7.5,0">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  Width="512" Height="512">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="0" Y="0"/>
+                    </Canvas.RenderTransform>
+                    <Canvas.Resources/>
+                    <!--Unknown tag: metadata-->
+                    <!--Unknown tag: sodipodi:namedview-->
+                    <Path x:ConnectionId='9' xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path3372" Fill="#FF2186FF" Data="M406.2 406.2c82.8-82.8 82.8-217.5 0-300.3C366.1 65.7 312.7 43.6 256 43.6s-110.1 22.1-150.2 62.2  c-82.8 82.8-82.8 217.5 0 300.3h0c40.1 40.1 93.4 62.2 150.2 62.2S366.1 446.3 406.2 406.2z M56.6 256c0-53.3 20.7-103.3 58.4-141  c37.7-37.7 87.7-58.4 141-58.4c53.3 0 103.3 20.7 141 58.4c77.8 77.8 77.8 204.3 0 282c-37.7 37.7-87.7 58.4-141 58.4  c-53.3 0-103.3-20.7-141-58.4C77.3 359.3 56.6 309.3 56.6 256z M181.4 141.7c-16.8 0-30.4 13.7-30.4 30.4s13.7 30.4 30.4 30.4  s30.4-13.7 30.4-30.4S198.2 141.7 181.4 141.7z M181.4 189.6c-9.6 0-17.5-7.8-17.5-17.5c0-9.6 7.8-17.5 17.5-17.5  s17.5 7.8 17.5 17.5C198.9 181.8 191.1 189.6 181.4 189.6z M181.4 225.6c-16.8 0-30.4 13.7-30.4 30.4s13.7 30.4 30.4 30.4  s30.4-13.7 30.4-30.4S198.2 225.6 181.4 225.6z M181.4 273.5c-9.6 0-17.5-7.8-17.5-17.5c0-9.6 7.8-17.5 17.5-17.5  s17.5 7.8 17.5 17.5C198.9 265.6 191.1 273.5 181.4 273.5z M181.4 309.4c-16.8 0-30.4 13.7-30.4 30.4c0 16.8 13.7 30.4 30.4 30.4  s30.4-13.7 30.4-30.4C211.9 323.1 198.2 309.4 181.4 309.4z M181.4 357.4c-9.6 0-17.5-7.8-17.5-17.5c0-9.6 7.8-17.5 17.5-17.5  s17.5 7.8 17.5 17.5C198.9 349.5 191.1 357.4 181.4 357.4z M234 170.6c0-3.6 2.9-6.5 6.5-6.5h114.1c3.6 0 6.5 2.9 6.5 6.5  s-2.9 6.5-6.5 6.5H240.5C236.9 177.1 234 174.2 234 170.6z M232.4 256c0-3.6 2.9-6.5 6.5-6.5H353c3.6 0 6.5 2.9 6.5 6.5  s-2.9 6.5-6.5 6.5H238.9C235.3 262.5 232.4 259.6 232.4 256z M353 346.4H238.9c-3.6 0-6.5-2.9-6.5-6.5s2.9-6.5 6.5-6.5H353  c3.6 0 6.5 2.9 6.5 6.5S356.6 346.4 353 346.4z"/>
+                </Canvas>
+
+            </Viewbox>
+
+        </StackPanel>
+        <TextBlock x:ConnectionId='1' x:Name="textBlock" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Home" VerticalAlignment="Center" Foreground="Black" FontSize="21.333" Grid.ColumnSpan="2"/>
+
+
+
+        <Grid Grid.Row="2" Margin="10,10,5,0">
+            <Image x:ConnectionId='6' x:Name="LimelightImage1" Stretch="UniformToFill" Source="Assets/crumpled-white-paper-texture-melemel-jpeg_260159.jpg" Margin="0" HorizontalAlignment="Center"/>
+            <Rectangle StrokeThickness="0">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#7F000000" Offset="1"/>
+                        <GradientStop/>
+                        <GradientStop Color="#5E404040" Offset="0.783"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock x:ConnectionId='7' Style="{ThemeResource HeaderTextBlockStyle}" Name="LimelightTitle1"  TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="10,0,10,10" FontSize="21.333" Foreground="White" Text="limelight"/>
+        </Grid>
+        <Grid Grid.Row="2" Margin="5,10,10,0" Grid.Column="1" HorizontalAlignment="Center">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image x:ConnectionId='3' x:Name="Image1" Stretch="UniformToFill" Source="Assets/crumpled-white-paper-texture-melemel-jpeg_260159.jpg" Margin="0,0,5,5"/>
+                <StackPanel>
+                <TextBlock x:ConnectionId='4' TextWrapping="Wrap" Name="Description1" Width="300"/>
+                    <TextBlock x:ConnectionId='5' Name="Date1" Foreground="#FF2186FF" Margin="0,5,0,0"/>
+
+                </StackPanel>
+            </StackPanel> 
+            <Image Stretch="UniformToFill" Source="Assets/crumpled-white-paper-texture-melemel-jpeg_260159.jpg" Margin="0,5,5,0" Grid.Row="1"/>
+          
+        </Grid>
+
+        <GridView x:ConnectionId='2' x:Name="FeedListView" Margin="0,10,0,0" ScrollViewer.VerticalScrollMode="Enabled"
+              ItemsSource="{Binding Path=Result}"                                     ShowsScrollingPlaceholders="False" BorderThickness="0"   BorderBrush="#FFE0E0E0" ScrollViewer.VerticalScrollBarVisibility="Visible" Background="White" HorizontalAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2" Padding="0" >
+            <GridView.Foreground>
+                <SolidColorBrush Color="White"/>
+            </GridView.Foreground>
+
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel  Background="{x:Null}"  BorderBrush="{x:Null}" BorderThickness="0" Margin="7.5" HorizontalAlignment="Left" Width="300" >
+                        <Image Width="300" Height="200" Stretch="UniformToFill" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0,0,0,3" Source="{Binding Path=thumbnail}"/>
+
+
+                        <TextBlock   Text="{Binding Path=title}" MaxLines="2"
+                         FontSize="17.333" TextWrapping="Wrap" Margin="0,5,0,0"  HorizontalAlignment="Left" FontWeight="Normal" FontFamily="Segoe UI" SelectionHighlightColor="#FF4BD2F9" Width="Auto" Foreground="Black"   />
+
+
+                        <TextBlock Text="{Binding Path=date}" FontSize="13.333" Margin="0,5,0,0" SelectionHighlightColor="{x:Null}" VerticalAlignment="Stretch" FontFamily="Segoe UI" HorizontalAlignment="Left" >
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="#FF2186FF"/>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+
+
+
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+
+
+        </GridView>
+
+    </Grid>
+
+    
+</Page>
+
