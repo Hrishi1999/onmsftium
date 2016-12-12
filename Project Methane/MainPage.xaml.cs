@@ -29,8 +29,7 @@ namespace Project_Methane
 
         public MainPage()
         {
-
-            this.InitializeComponent();
+            InitializeComponent();
         
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true; var view = ApplicationView.GetForCurrentView();
@@ -38,16 +37,14 @@ namespace Project_Methane
 
             titleBar.ButtonBackgroundColor = Colors.White;
             titleBar.ButtonForegroundColor = Color.FromArgb(255, 33, 134, 255);
-            Start();
 
             HarmonicKernel.Settings.accentColor = "#FF4C75";
-
         }
-        async void Start()
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-                bool success = await HarmonicKernel.Core.RetriveFeed();
-          
+            await HarmonicKernel.Core.GetArticleFeed();
+
 
 
             this.DataContext = new ViewModel() { Result = HarmonicKernel.Core.articles };
@@ -63,8 +60,8 @@ namespace Project_Methane
 
             //   ProgressRing.IsActive = false;
             //    var x = MainGrid.ActualWidth;
-
         }
+
 
 
         private void SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,11 +74,6 @@ namespace Project_Methane
         }
 
 
-        private void Refresh(object sender, RoutedEventArgs e)
-        {
-            Start();
-
-        }
 
 
         private void Videos(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
