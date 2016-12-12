@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,92 +56,71 @@ namespace Project_Methane
             }
             public class VideoItem
             {
-                public String Title { get; set; }
-                public String VideoId { get; set; }
-                public String Thumbnail { get; set; }
-                public String Date { get; set; }
-                public String ViewCount { get; set; }
+                public string Title { get; set; }
+                public string VideoId { get; set; }
+                public string Thumbnail { get; set; }
+                public string Date { get; set; }
+                public string ViewCount { get; set; }
             }
 
-            public static async Task<bool> RetriveFeed()
+            public static async Task<bool> GetArticleFeed()
             {
-
-                HttpClient httpClient = new HttpClient();
-                HttpResponseMessage response = await httpClient.GetAsync(new Uri("http://onmsft.com/feed/json"));
-
-
-                string responseString = await response.Content.ReadAsStringAsync();
-                responseString = responseString.Replace("&#8217;", "'"); responseString = responseString.Replace("&#8216;", "'"); responseString = responseString.Replace("&amp;", "&");
-                responseString = responseString.Replace("&#8220;", "'"); responseString = responseString.Replace("&#8221;", "'");
-
-
-                articles = JsonConvert.DeserializeObject<ObservableCollection<ArticleItem>>(responseString);
-                int currentYear = DateTime.Today.Year;
-                int currentMonth = DateTime.Today.Month;
-                int currentDay = DateTime.Today.Day;
-
-                foreach (var article in articles)
+                // Create a client to retrieve the feed from OnMSFT,
+                // we also tell the client to use automatic decompression
+                // to speed up the process.
+                using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip }))
                 {
-                    string a = article.id.ToString();
-                    article.excerpt = article.excerpt.Replace("&#46;", "");
-                    string[] datetime = article.date.Split(' ');
-                    string[] y_m_d = datetime[0].Split('-');
-                    string[] h_m_s = datetime[1].Split(':');
-                    if (Convert.ToInt16(h_m_s[0]) > 11)
+                    using (var response = await client.GetAsync(new Uri("https://www.onmsft.com/feed/json")))
                     {
-                        if (Convert.ToInt16(h_m_s[0]) > 12)
-                        {
-                            h_m_s[0] = (Convert.ToInt16(h_m_s[0]) - 12).ToString();
-                        }
-                        h_m_s[1] += " PM";
-                    }
-                    else
-                    {
-                        h_m_s[1] += " AM";
+                        var responseString = await response.Content.ReadAsStringAsync();
+                        
+                        responseString = responseString.Replace("&#8217;", "'"); responseString = responseString.Replace("&#8216;", "'"); responseString = responseString.Replace("&amp;", "&");
+                        responseString = responseString.Replace("&#8220;", "'"); responseString = responseString.Replace("&#8221;", "'");
 
-                    }
-                    if (Convert.ToInt16(y_m_d[0]) < currentYear)
-                    {
-                        if (y_m_d[2] == "31")
-                        {
-                            //yesterday
-                        }
-                        else
-                        {
-                            int daysAgo = 32 - Convert.ToInt16(y_m_d[2]);
-                        }
-                    }
-                    else if (Convert.ToInt16(y_m_d[1]) < currentMonth)
-                    {
-                        int numberOfDays = DateTime.DaysInMonth(Convert.ToInt16(y_m_d[0]), Convert.ToInt16(y_m_d[1]) - 1);
-                        if (y_m_d[2] == numberOfDays.ToString())
-                        {
-                            //yesterday
-                        }
-                        else
-                        {
-                            int daysAgo = (numberOfDays + 1) - Convert.ToInt16(y_m_d[2]);
+                        articles = JsonConvert.DeserializeObject<ObservableCollection<ArticleItem>>(responseString);
 
+                        foreach (var article in articles)
+                        {
+                            // Image logic. Images returned from the feed are in a 
+                            // 'URL size,' pattern. For now we can just use the first
+                            // image. First we split the group of images (,).
+                            var images = article.thumbnail.Split(',');
+                            // Grab a single image, this code needs to have error checking
+                            // You can also mess around with images[] to get better image
+                            // quality.
+                            var singleImage = images[0].Trim().Split(' ')[0].Trim();
+                            // Set the thumbnail image to this new image
+                            article.thumbnail = singleImage;
 
-                        }
-                    }
-                    else
-                    {
-                        int daysAgo = currentDay - (Convert.ToInt16(y_m_d[2]));
-                        if (daysAgo == 0)
-                        {
-                            article.date = "Today at " + h_m_s[0] + ":" + h_m_s[1];
-                        }
-                        else if (daysAgo == 1)
-                        {
-                            article.date = "Yesterday at " + h_m_s[0] + ":" + h_m_s[1];
-                        }
-                        else
-                        {
-                            article.date = daysAgo + " days ago at " + h_m_s[0] + ":" + h_m_s[1];
+                            // Clean the excerpt string
+                            article.excerpt = article.excerpt.Replace("&#46;", "");
+
+                            // Clean and sort the date object. 
+                            var articleDateTime = DateTime.Parse(article.date);
+                            var localDateTime = articleDateTime.ToLocalTime();
+
+                            // Create a clean time string with correct AM / PM (12 hour time)
+                            var localTime = string.Format("{0:t}", localDateTime);
+
+                            // How many days ago was this post
+                            var daysAgo = DateTime.Now.Day - localDateTime.Day;
+
+                            switch (daysAgo)
+                            {
+                                case 0:
+                                    article.date = "Today at " + localTime;
+                                    break;
+                                case 1:
+                                    article.date = "Yesterday at " + localTime;
+                                    break;
+                                default:
+                                    article.date = daysAgo + " days ago at " + localTime;
+                                    break;
+                            }
                         }
                     }
                 }
+
                 return true;
 
             }
